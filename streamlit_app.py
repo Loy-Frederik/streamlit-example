@@ -15,7 +15,7 @@ titles_url = 'https://drive.google.com/file/d/1Z3vHbjAeTAmFp-NeM-j4zYJjLz-fpqfn/
 
 path = 'https://drive.google.com/uc?export=download&id='
 rating_df = pd.read_csv(path+rating_url.split('/')[-2])
-titles_df = pd.read_csv(path+titles_url.split('/')[-2])
+titles = pd.read_csv(path+titles_url.split('/')[-2])
 
 # Download the image using requests
 response = requests.get(logo_url)
@@ -30,4 +30,4 @@ st.header("Find awesome movies")
 
 st.sidebar.header('What do you wanna do?')
 
-movie_like = st.sidebar.selectbox('Movie like', titles_df['title'])#, key = 'movie_like')
+movie_like = st.sidebar.selectbox('Movie like', titles['title'], key = 'movie_like')
