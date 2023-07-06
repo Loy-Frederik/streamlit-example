@@ -10,7 +10,7 @@ from urllib.request import urlopen
 logo_url ='https://img.freepik.com/premium-vector/cute-couple-panda-watching-movie-eating-popcorn-cartoon-vector-icon-illustration-animal-food_138676-6443.jpg'
 
 
-logo = Image.open(urlopen(url))
+logo = Image.open(urlopen(logo_url))
 
 st.set_page_config(page_title='WBSFlix', page_icon=logo)
 st.header("Find awesome movies")
