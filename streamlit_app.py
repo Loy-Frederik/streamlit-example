@@ -6,6 +6,7 @@ import streamlit as st
 from PIL import Image
 import requests
 from urllib.request import urlopen
+from io import BytesIO
 
 logo_url = 'https://img.freepik.com/premium-vector/cute-couple-panda-watching-movie-eating-popcorn-cartoon-vector-icon-illustration-animal-food_138676-6443.jpg'
 
