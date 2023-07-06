@@ -5,9 +5,12 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 import requests
+from urllib.request import urlopen
+
+logo_url ='https://img.freepik.com/premium-vector/cute-couple-panda-watching-movie-eating-popcorn-cartoon-vector-icon-illustration-animal-food_138676-6443.jpg'
 
 
-logo = Image.open(requests.get('https://img.freepik.com/premium-vector/cute-couple-panda-watching-movie-eating-popcorn-cartoon-vector-icon-illustration-animal-food_138676-6443.jpg', stream=True).raw)
+logo = Image.open(urlopen(url))
 
 st.set_page_config(page_title='WBSFlix', page_icon=logo)
 st.header("Find awesome movies")
