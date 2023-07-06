@@ -22,9 +22,3 @@ st.set_page_config(page_title='WBSFlix', page_icon=logo)
 st.header("Find awesome movies")
 
 
-
-
-
-#     st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
-#         .mark_circle(color='#0068c9', opacity=0.5)
-#         .encode(x='x:Q', y='y:Q'))
