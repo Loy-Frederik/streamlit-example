@@ -6,7 +6,6 @@ import streamlit as st
 from PIL import Image
 import requests
 
-im = Image.open(requests.get(url, stream=True).raw)
 
 logo = Image.open(requests.get('https://img.freepik.com/premium-vector/cute-couple-panda-watching-movie-eating-popcorn-cartoon-vector-icon-illustration-animal-food_138676-6443.jpg', stream=True).raw)
 
