@@ -29,9 +29,11 @@ st.set_page_config(page_title='WBSFlix', page_icon=logo)
 st.header("Find awesome movies")
 
 st.sidebar.header('What do you wanna do?')
+
+st.sidebar.selectbox('Movie like', titles_df['title'])
+
 def movies_like():
   movie = st.sidebar.selectbox('Movie like', titles_df['title'])
   return(movie)
+
 movie_like = movies_like()
-movie = st.sidebar.selectbox('Movie like', titles_df['title'])   
-st.subheader('User Input features')
