@@ -32,8 +32,8 @@ st.sidebar.header('What do you wanna do?')
 
 st.sidebar.selectbox('Movie like', titles_df['title'])
 
-def movies_like():
-  movie = st.sidebar.selectbox('Movie like', titles_df['title'])
-  return(movie)
+# def movies_like():
+#   movie = st.sidebar.selectbox('Movie like', titles_df['title'])
+#   return(movie)
 
-movie_like = movies_like()
+# movie_like = movies_like()
