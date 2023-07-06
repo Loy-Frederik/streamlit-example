@@ -3,7 +3,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-from PTL import Image
+from PIL import Image
 
 logo = Image.open('https://img.freepik.com/premium-vector/cute-couple-panda-watching-movie-eating-popcorn-cartoon-vector-icon-illustration-animal-food_138676-6443.jpg')
 
