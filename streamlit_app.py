@@ -30,4 +30,4 @@ st.header("Find awesome movies")
 
 st.sidebar.header('What do you wanna do?')
 
-movie_like = st.sidebar.selectbox('Movie like', titles_df['title'], key = 'movie_recommender')
+movie_like = st.sidebar.selectbox('Movie like', titles_df['title'], key = 'movie_like')
