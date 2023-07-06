@@ -34,3 +34,4 @@ def movies_like():
   return(movie)
 movie_like = movies_like()
    
+st.subheader('User Input features')
