@@ -30,7 +30,7 @@ st.header("Find awesome movies")
 
 st.sidebar.header('What do you wanna do?')
 
-st.sidebar.selectbox('Movie like', titles_df['title'])
+movie_like = st.sidebar.selectbox('Movie like', titles_df['title'])
 
 # def movies_like():
 #   movie = st.sidebar.selectbox('Movie like', titles_df['title'])
