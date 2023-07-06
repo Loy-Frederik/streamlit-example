@@ -7,7 +7,7 @@ from PIL import Image
 
 # logo = Image.open('https://img.freepik.com/premium-vector/cute-couple-panda-watching-movie-eating-popcorn-cartoon-vector-icon-illustration-animal-food_138676-6443.jpg')
 
-st.set_page_config(page_title='WBSFlix', page_icon=logo)
+st.set_page_config(page_title='WBSFlix')#, page_icon=logo)
 st.header("Find awesome movies")
 """
 # Welcome to Streamlit!
