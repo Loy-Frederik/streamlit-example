@@ -63,8 +63,8 @@ else:
     
     ncol = len(pop_movies)
     with st.container():
-        for i in range(0, ncol, 5):
-            col1, col2, col3, col4, col5 = st.columns(5)
+        for i in range(0, ncol, 4):
+            col1, col2, col3, col4 = st.columns(5)
             with col1:
                 st.header(pop_movies.iloc[i]['title'])
                 st.image(pop_movies.iloc[i]['img'])
@@ -80,10 +80,6 @@ else:
                 if i + 1 < ncol:
                     st.header(pop_movies.iloc[i+3]['title'])
                     st.image(pop_movies.iloc[i+3]['img'])
-            with col5:
-                if i + 1 < ncol:
-                    st.header(pop_movies.iloc[i+4]['title'])
-                    st.image(pop_movies.iloc[i+4]['img'])
 
     
 
