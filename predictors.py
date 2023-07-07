@@ -113,7 +113,7 @@ def pop_movies(wf, alt = 10, period = 'all', time_mod = '2020-06-01'):     #peri
     result = result.sort_values('recommendation', ascending=False)[['rating', 'rating_count']].head(alt)
 
     result.reset_index(inplace=True)
-    result['title'] = result['movieId'].apply(get_title)
+    result['title'], result['img']= result['movieId'].apply(get_title)
     result.set_index('movieId', drop=True, inplace=True)
     
     return(result)
@@ -176,7 +176,7 @@ def similar_movies(wf, alt = 10, movie_id= 'tt0372784', minbo = 80):
     result = corr_tab_summary.sort_values('recommendation', ascending=False)[['rating', 'PearsonR', 'rating_count']].head(alt)
 
     result.reset_index(inplace=True)
-    result['title'] = result['movieId'].apply(get_title)
+    result['title'], result['img'] = result['movieId'].apply(get_title)
     result.set_index('movieId', drop=True, inplace=True)
 
     return(result)
@@ -239,7 +239,7 @@ def similar_taste(wf, alt = 10, u_id= 'ur4592644', minbo = 30):
     result = weighted_averages.sort_values("predicted_rating", ascending=False).head(alt)
 
     result.reset_index(inplace=True)
-    result['title'] = result['movieId'].apply(get_title)
+    result['title'], result['img'] = result['movieId'].apply(get_title)
     result.set_index('movieId', drop=True, inplace=True)
     
     return(result)
