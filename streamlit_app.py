@@ -60,10 +60,9 @@ else:
     #         st.header(pop_movies.iloc[i]['title'])
     #         st.image(pop_movies.iloc[i]['img'])
 
-import streamlit as st
-
+    
     ncol = len(pop_movies)
-    col_width = 1250  # Adjust the column width as needed
+    col_width = 250  # Adjust the column width as needed
     
     container_style = f"overflow-x: scroll; white-space: nowrap; width: {ncol * col_width}px;"
     column_style = f"display: inline-block; vertical-align: top; width: {col_width}px; margin-right: 20px;"
@@ -76,6 +75,7 @@ import streamlit as st
             st.image(pop_movies.iloc[i]['img'])
             st.write('</div>')
         st.write('</div>')
+
 
 
     
