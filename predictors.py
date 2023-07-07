@@ -146,7 +146,7 @@ def pop_movies(wf, alt = 10, period = 'all', time_mod = '2020-06-01'):     #peri
 
 # your code here
 #### All in One Function
-def similar_movies(wf, alt = 10, movie_id= 'tt0372784', minbo = 20):
+def similar_movies(wf, alt = 10, movie_id= 'tt0372784', minbo = 40):
 
     ## Filter location visited min minbo times
     filtered_df = wf[wf['movieId'] == movie_id]
@@ -210,7 +210,7 @@ def similar_movies(wf, alt = 10, movie_id= 'tt0372784', minbo = 20):
 
 # your code here
 
-def similar_taste(wf, alt = 10, u_id= 'ur4592644', minbo = 20):
+def similar_taste(wf, alt = 10, u_id= 'ur4592644', minbo = 40):
     
 
     ## Filter location visited min minbo times
