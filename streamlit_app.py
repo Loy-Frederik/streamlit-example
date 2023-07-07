@@ -64,13 +64,24 @@ else:
     ncol = len(pop_movies)
     col_width = 250  # Adjust the column width as needed
     
-    container_style = f"overflow-x: scroll; white-space: nowrap; width: {ncol * col_width}px;"
-    column_style = f"display: inline-block; vertical-align: top; width: {col_width}px; margin-right: 20px;"
+    html_code = """
+        <style>
+            .container {
+                display: flex;
+                overflow-x: auto;
+            }
+            .column {
+                flex: 0 0 """ + str(col_width) + """px;
+                margin-right: 20px;
+            }
+        </style>
+    """
     
     with st.container():
-        st.markdown('<div style="' + container_style + '">', unsafe_allow_html=True)
+        st.markdown(html_code, unsafe_allow_html=True)
+        st.markdown('<div class="container">', unsafe_allow_html=True)
         for i in range(ncol):
-            st.markdown('<div style="' + column_style + '">', unsafe_allow_html=True)
+            st.markdown('<div class="column">', unsafe_allow_html=True)
             st.header(pop_movies.iloc[i]['title'])
             st.image(pop_movies.iloc[i]['img'])
             st.markdown('</div>', unsafe_allow_html=True)
