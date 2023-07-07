@@ -61,7 +61,6 @@ else:
     #         st.image(pop_movies.iloc[i]['img'])
 
     ncol = len(pop_movies)
-    col_width = 250  # Adjust the column width as needed
     
     with st.container():
         st.write(
@@ -70,7 +69,7 @@ else:
         )
         row = st.columns(ncol)
         for i in range(ncol):
-            with row[i].container(width=col_width):
+            with row[i].container():
                 st.header(pop_movies.iloc[i]['title'])
                 st.image(pop_movies.iloc[i]['img'])
         st.write('</div>', unsafe_allow_html=True)
