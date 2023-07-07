@@ -60,20 +60,22 @@ else:
     #         st.header(pop_movies.iloc[i]['title'])
     #         st.image(pop_movies.iloc[i]['img'])
 
+import streamlit as st
+
     ncol = len(pop_movies)
     col_width = 1250  # Adjust the column width as needed
     
+    container_style = f"overflow-x: scroll; white-space: nowrap; width: {ncol * col_width}px;"
+    column_style = f"display: inline-block; vertical-align: top; width: {col_width}px; margin-right: 20px;"
+    
     with st.container():
-        st.write(
-            f'<div style="display: flex; overflow-x: auto; width: {ncol * col_width}px;">',
-            unsafe_allow_html=True
-        )
-        row = st.columns(ncol)
+        st.write('<div style="' + container_style + '">')
         for i in range(ncol):
-            with row[i]:
-                st.header(pop_movies.iloc[i]['title'])
-                st.image(pop_movies.iloc[i]['img'])
-        st.write('</div>', unsafe_allow_html=True)
+            st.write('<div style="' + column_style + '">')
+            st.header(pop_movies.iloc[i]['title'])
+            st.image(pop_movies.iloc[i]['img'])
+            st.write('</div>')
+        st.write('</div>')
 
 
     
