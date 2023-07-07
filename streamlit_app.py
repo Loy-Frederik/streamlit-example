@@ -54,7 +54,7 @@ else:
     # st.dataframe(pop_movies)
 
     ncol = len(pop_movies)
-    cols = st.columns([1,ncol])
+    cols = st.columns(ncol)
     with st.container():
         for i, x in enumerate(cols):
             st.header(pop_movies.iloc[i]['title'])
