@@ -31,11 +31,14 @@ st.header("Find awesome movies")
 st.sidebar.header('What do you wanna do?')
 
 
+custom = st.sidebar.checkbox('Personalized Experience', value=False, key='custom', help='Click this to get Custom recommendations')
 
-
-rec_select = st.sidebar.radio(
-    "What kind of recommendation do you like",
-    ('Similar Movies', 'Similar Taste', 'Movies that are hot right now', 'All at once'))
+if custom == True:
+    rec_select = st.sidebar.radio(
+        "What kind of recommendation do you like",
+        ('Similar Movies', 'Similar Taste', 'Movies that are hot right now', 'All at once'))
+else:
+    st.write('Basic Bitch!')
 
 if rec_select == 'Similar Movies':
     movie_like = st.sidebar.selectbox('Movie like', titles_df['title'], key = 'movie_like')
@@ -43,5 +46,7 @@ elif rec_select == 'Similar Taste':
     user_like = st.sidebar.selectbox('Who are you', rating_df['userId'], key = 'user_like')
 elif rec_select == 'Movies that are hot right now':
     st.write('Lets find some lit Movies.')
-else:
+elif rec_select == 'All at once':
     st.write('Sure we can do all together!')
+else:
+    st.write('These movies are lit!!!!')
