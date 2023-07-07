@@ -68,14 +68,13 @@ else:
     column_style = f"display: inline-block; vertical-align: top; width: {col_width}px; margin-right: 20px;"
     
     with st.container():
-        st.write('<div style="' + container_style + '">')
+        st.markdown('<div style="' + container_style + '">', unsafe_allow_html=True)
         for i in range(ncol):
-            st.write('<div style="' + column_style + '">')
+            st.markdown('<div style="' + column_style + '">', unsafe_allow_html=True)
             st.header(pop_movies.iloc[i]['title'])
             st.image(pop_movies.iloc[i]['img'])
-            st.write('</div>')
-        st.write('</div>')
-
+            st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
 
 
     
