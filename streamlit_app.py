@@ -9,6 +9,8 @@ import requests
 from urllib.request import urlopen
 from io import BytesIO
 
+import predictors as pred
+
 logo_url = 'https://img.freepik.com/premium-vector/cute-couple-panda-watching-movie-eating-popcorn-cartoon-vector-icon-illustration-animal-food_138676-6443.jpg'
 
 rating_url = 'https://drive.google.com/file/d/1JBolFNkww-nRO_PTAHeXGE3KSVY4_7dl/view?usp=sharing'
