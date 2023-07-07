@@ -61,7 +61,7 @@ else:
     #         st.image(pop_movies.iloc[i]['img'])
 
     ncol = len(pop_movies)
-    col_width = 250  # Adjust the column width as needed
+    col_width = 1250  # Adjust the column width as needed
     
     with st.container():
         st.write(
