@@ -61,9 +61,9 @@ def get_title(X):
 
 
 #### Popular Ursula
-def pop_movies(wf, alt = 10, period = 'all', time_mod = '2020-06-01'):     #period of time accepted: 'all', 'week', 'date', 'month', 'year', 'days'
+def pop_movies(wf, alt = 10, period = 'all', time_mod = '2020-06-01'):     #period of time accepted: 'all', 'weeks', 'date', 'months', 'years', 'days'
 
-    ok_period = ['all', 'week', 'date', 'month', 'year', 'days']
+    ok_period = ['all', 'weeks', 'date', 'months', 'years', 'days']
 
     if period in ok_period:
         if period == 'days':
@@ -72,19 +72,19 @@ def pop_movies(wf, alt = 10, period = 'all', time_mod = '2020-06-01'):     #peri
                 wf = wf.loc[wf['timestamp'] >= filter_time]
             else:
                 sys.exit(f"time_mod has to be numeric to work with period = {period}")   
-        if period == 'week':
+        if period == 'weeks':
             if type(time_mod)==int:
                 filter_time = datetime.timestamp(datetime.utcnow()-timedelta(weeks=int(time_mod)))
                 wf = wf.loc[wf['timestamp'] >= filter_time]
             else:
                 sys.exit(f"time_mod has to be numeric to work with period = {period}")   
-        if period == 'month':
+        if period == 'months':
             if type(time_mod)==int:
                 filter_time = datetime.timestamp(datetime.utcnow()-relativedelta(months=int(time_mod)))
                 wf = wf.loc[wf['timestamp'] >= filter_time]
             else:
                 sys.exit(f"time_mod has to be numeric to work with period = {period}")   
-        if period == 'year':
+        if period == 'years':
             if type(time_mod)==int:
                 filter_time = datetime.timestamp(datetime.utcnow()-relativedelta(years=int(time_mod)))
                 wf = wf.loc[wf['timestamp'] >= filter_time]
