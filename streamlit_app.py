@@ -63,7 +63,7 @@ else:
     
     ncol = len(pop_movies)
     with st.container():
-        for i in range(0, ncol, 3):
+        for i in range(0, ncol, 5):
             col1, col2, col3, col4, col5 = st.columns(5)
             with col1:
                 st.header(pop_movies.iloc[i]['title'])
