@@ -13,14 +13,19 @@ import predictors as pred
 
 logo_url = 'https://img.freepik.com/premium-vector/cute-couple-panda-watching-movie-eating-popcorn-cartoon-vector-icon-illustration-animal-food_138676-6443.jpg'
 
-rating_url = 'https://drive.google.com/file/d/1JBolFNkww-nRO_PTAHeXGE3KSVY4_7dl/view?usp=sharing'
-titles_url = 'https://drive.google.com/file/d/1Z3vHbjAeTAmFp-NeM-j4zYJjLz-fpqfn/view?usp=sharing'
-users_url = 'https://drive.google.com/file/d/1WTZcDfGsHU2ed9kTsdVIaeFcJ2M2Fxfe/view?usp=sharing'
+# rating_url = 'https://drive.google.com/file/d/1JBolFNkww-nRO_PTAHeXGE3KSVY4_7dl/view?usp=sharing'
+# titles_url = 'https://drive.google.com/file/d/1Z3vHbjAeTAmFp-NeM-j4zYJjLz-fpqfn/view?usp=sharing'
+# users_url = 'https://drive.google.com/file/d/1WTZcDfGsHU2ed9kTsdVIaeFcJ2M2Fxfe/view?usp=sharing'
 
-path = 'https://drive.google.com/uc?export=download&id='
-rating_df = pd.read_csv(path+rating_url.split('/')[-2])
-titles_df = pd.read_csv(path+titles_url.split('/')[-2])
-users_df = pd.read_csv(path+users_url.split('/')[-2])
+# path = 'https://drive.google.com/uc?export=download&id='
+# rating_df = pd.read_csv(path+rating_url.split('/')[-2])
+# titles_df = pd.read_csv(path+titles_url.split('/')[-2])
+# users_df = pd.read_csv(path+users_url.split('/')[-2])
+
+rating_df    =    pd.read_csv('data/reduced_movies.csv')
+titles_df    =    pd.read_csv('data/movie_names.csv')
+users_df     =    pd.read_csv('data/user_df.csv')
+
 
 # Download the image using requests
 response = requests.get(logo_url)
