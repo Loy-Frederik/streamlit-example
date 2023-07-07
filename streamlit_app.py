@@ -59,7 +59,7 @@ else:
 if rec_select == 'Similar Movies':
     def movie_like():
         title = st.sidebar.selectbox('Movie like', titles_df['title'], key = 'movie_like')
-        amount = st.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='mln', help='Here you can specify the number of recommended Movies')
+        amount = st.sidebar.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='mln', help='Here you can specify the number of recommended Movies')
 
         mov_id = titles_df.loc[titles_df['title']== title,'movieId'].values[0]
 
@@ -81,7 +81,7 @@ if rec_select == 'Similar Movies':
 elif rec_select == 'Similar Taste':
     def user_like():
         user = st.sidebar.selectbox('Who are you', users_df['name'], key = 'user_like')
-        amount = st.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='uln', help='Here you can specify the number of recommended Movies')
+        amount = st.sidebar.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='uln', help='Here you can specify the number of recommended Movies')
 
         user_id = users_df.loc[users_df['name']== user,'userId'].values[0]
 
@@ -104,12 +104,12 @@ elif rec_select == 'Movies that are hot right now':
     st.write('Lets find some lit Movies.')
 
     def pop_mov():
-        amount = st.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='pln', help='Here you can specify the number of recommended Movies')
+        amount = st.sidebar.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='pln', help='Here you can specify the number of recommended Movies')
         period = st.sidebar.radio(
             "What Timespan do u want to include to calculate the right movies for you?",
             ('all', 'weeks', 'months', 'years', 'days'), key='period')
         if period != 'all':
-            start_time = st.slider(f'Last {period}', min_value=2, max_value=40, value=5, key='stime', help=f'Here you can define what time period in {period} will be used to make recommendations')
+            start_time = st.sidebar.slider(f'Last {period}', min_value=2, max_value=40, value=5, key='stime', help=f'Here you can define what time period in {period} will be used to make recommendations')
         else:
             start_time = '1'
 
@@ -134,7 +134,7 @@ elif rec_select == 'All at once':
 
     def movie_like():
         title = st.sidebar.selectbox('Movie like', titles_df['title'], key = 'movie_like')
-        amount = st.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='mln', help='Here you can specify the number of recommended Movies')
+        amount = st.sidebar.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='mln', help='Here you can specify the number of recommended Movies')
 
         mov_id = titles_df.loc[titles_df['title']== title,'movieId'].values[0]
 
@@ -155,7 +155,7 @@ elif rec_select == 'All at once':
 
     def user_like():
         user = st.sidebar.selectbox('Who are you', users_df['name'], key = 'user_like')
-        amount = st.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='uln', help='Here you can specify the number of recommended Movies')
+        amount = st.sidebar.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='uln', help='Here you can specify the number of recommended Movies')
 
         user_id = users_df.loc[users_df['name']== user,'userId'].values[0]
 
@@ -175,12 +175,12 @@ elif rec_select == 'All at once':
             st.image(user_movies.iloc[i]['img'])
 
     def pop_mov():
-        amount = st.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='pln', help='Here you can specify the number of recommended Movies')
+        amount = st.sidebar.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='pln', help='Here you can specify the number of recommended Movies')
         period = st.sidebar.radio(
             "What Timespan do u want to include to calculate the right movies for you?",
             ('all', 'weeks', 'months', 'years', 'days'), key='period')
         if period != 'all':
-            start_time = st.slider(f'Last {period}', min_value=2, max_value=40, value=5, key='stime', help=f'Here you can define what time period in {period} will be used to make recommendations')
+            start_time = st.sidebar.slider(f'Last {period}', min_value=2, max_value=40, value=5, key='stime', help=f'Here you can define what time period in {period} will be used to make recommendations')
         else:
             start_time = '1'
 
