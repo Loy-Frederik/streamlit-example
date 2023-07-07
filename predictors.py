@@ -23,7 +23,7 @@ def get_image(X):
     soup_url = "https://www.imdb.com/title/"
     headers = {'Accept-Language': 'en-US,en;q=0.8', 'user-agent': 'mozilla/5.0'}
     # headers= {}
-    response = requests.get(f'{soup_url}{"tt0372784"}', headers = headers)
+    response = requests.get(f'{soup_url}{X}', headers = headers)
 
     if response.status_code != 200:# 200 status code means OK!   
         sys.exit(f"The Soup was to cold. Error: {response.status_code}")
