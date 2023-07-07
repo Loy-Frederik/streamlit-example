@@ -56,36 +56,151 @@ else:
             st.image(pop_movies.iloc[i]['img'])
     
 
-
-    
-
 if rec_select == 'Similar Movies':
-    movie_like = st.sidebar.selectbox('Movie like', titles_df['title'], key = 'movie_like')
+    def movie_like():
+        title = st.sidebar.selectbox('Movie like', titles_df['title'], key = 'movie_like')
+        amount = st.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='mln', help='Here you can specify the number of recommended Movies')
+
+        mov_id = titles_df.loc[titles_df['title']== title,'movieId'].values[0]
+
+        data = {'title': mov_id,
+                'amount': amount,
+                'name':title}
+        return(data)
+    sim_feature =  movie_like()
+    sim_movies = pred.similar_movies(wf = rating_df, alt = sim_feature['amount'], movie_id = sim_feature['mov_id'])
+
+    mov_col = len(sim_movies)
+    m_cols = st.columns(mov_col)
+    with st.container():
+        st.header(f'Movies like {sim_feature["name"]}')
+        for i, x in enumerate(m_cols):
+            st.header(sim_movies.iloc[i]['title'])
+            st.image(sim_movies.iloc[i]['img'])
+
 elif rec_select == 'Similar Taste':
-    user_like = st.sidebar.selectbox('Who are you', users_df['name'], key = 'user_like')
+    def user_like():
+        user = st.sidebar.selectbox('Who are you', users_df['name'], key = 'user_like')
+        amount = st.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='uln', help='Here you can specify the number of recommended Movies')
+
+        user_id = users_df.loc[users_df['name']== user,'userId'].values[0]
+
+        data = {'title': user_id,
+                'amount': amount,
+                'name' : user}
+        return(data)
+    user_feature =  user_like()
+    user_movies = pred.similar_taste(wf = rating_df, alt = user_feature['amount'], movie_id = user_feature['user_id'])
+
+    user_col = len(user_movies)
+    u_cols = st.columns(user_col)
+    with st.container():
+        st.header(f'Special Treats for you {user_feature["name"]}')
+        for i, x in enumerate(u_cols):
+            st.header(user_movies.iloc[i]['title'])
+            st.image(user_movies.iloc[i]['img'])
+
 elif rec_select == 'Movies that are hot right now':
     st.write('Lets find some lit Movies.')
+
+    def pop_mov():
+        amount = st.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='pln', help='Here you can specify the number of recommended Movies')
+        period = st.sidebar.radio(
+            "What Timespan do u want to include to calculate the right movies for you?",
+            ('all', 'weeks', 'months', 'years', 'days'), key='period')
+        if period != 'all':
+            start_time = st.slider(f'Last {period}', min_value=2, max_value=40, value=5, key='stime', help=f'Here you can define what time period in {period} will be used to make recommendations')
+        else:
+            start_time = '1'
+
+
+        data = {'period': period,
+                'time_mod':start_time,
+                'amount': amount}
+        return(data)
+    pop_feature =  pop_mov()
+    pop_movies_custom = pred.pop_movies(wf = rating_df, alt = pop_feature['amount'], period = pop_feature['period'], time_mod = pop_feature['time_mod'])
+
+    pop_col = len(pop_movies_custom)
+    p_cols = st.columns(pop_col)
+    with st.container():
+        st.header(f'These movies are Lit')
+        for i, x in enumerate(p_cols):
+            st.header(pop_movies_custom.iloc[i]['title'])
+            st.image(pop_movies_custom.iloc[i]['img'])
+
 elif rec_select == 'All at once':
-    st.write('Sure we can do all together!')
+    st.write('Lets do all together!')
+
+    def movie_like():
+        title = st.sidebar.selectbox('Movie like', titles_df['title'], key = 'movie_like')
+        amount = st.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='mln', help='Here you can specify the number of recommended Movies')
+
+        mov_id = titles_df.loc[titles_df['title']== title,'movieId'].values[0]
+
+        data = {'title': mov_id,
+                'amount': amount,
+                'name':title}
+        return(data)
+    sim_feature =  movie_like()
+    sim_movies = pred.similar_movies(wf = rating_df, alt = sim_feature['amount'], movie_id = sim_feature['mov_id'])
+
+    mov_col = len(sim_movies)
+    m_cols = st.columns(mov_col)
+    with st.container():
+        st.header(f'Movies like {sim_feature["name"]}')
+        for i, x in enumerate(m_cols):
+            st.header(sim_movies.iloc[i]['title'])
+            st.image(sim_movies.iloc[i]['img'])
+
+    def user_like():
+        user = st.sidebar.selectbox('Who are you', users_df['name'], key = 'user_like')
+        amount = st.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='uln', help='Here you can specify the number of recommended Movies')
+
+        user_id = users_df.loc[users_df['name']== user,'userId'].values[0]
+
+        data = {'title': user_id,
+                'amount': amount,
+                'name' : user}
+        return(data)
+    user_feature =  user_like()
+    user_movies = pred.similar_taste(wf = rating_df, alt = user_feature['amount'], movie_id = user_feature['user_id'])
+
+    user_col = len(user_movies)
+    u_cols = st.columns(user_col)
+    with st.container():
+        st.header(f'Special Treats for you {user_feature["name"]}')
+        for i, x in enumerate(u_cols):
+            st.header(user_movies.iloc[i]['title'])
+            st.image(user_movies.iloc[i]['img'])
+
+    def pop_mov():
+        amount = st.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='pln', help='Here you can specify the number of recommended Movies')
+        period = st.sidebar.radio(
+            "What Timespan do u want to include to calculate the right movies for you?",
+            ('all', 'weeks', 'months', 'years', 'days'), key='period')
+        if period != 'all':
+            start_time = st.slider(f'Last {period}', min_value=2, max_value=40, value=5, key='stime', help=f'Here you can define what time period in {period} will be used to make recommendations')
+        else:
+            start_time = '1'
+
+
+        data = {'period': period,
+                'time_mod':start_time,
+                'amount': amount}
+        return(data)
+    pop_feature =  pop_mov()
+    pop_movies_custom = pred.pop_movies(wf = rating_df, alt = pop_feature['amount'], period = pop_feature['period'], time_mod = pop_feature['time_mod'])
+
+    pop_col = len(pop_movies_custom)
+    p_cols = st.columns(pop_col)
+    with st.container():
+        st.header(f'These movies are Lit')
+        for i, x in enumerate(p_cols):
+            st.header(pop_movies_custom.iloc[i]['title'])
+            st.image(pop_movies_custom.iloc[i]['img'])
+
+    
+
 else:
     st.write('These movies are lit!!!!')
-
-
-
-
-
-
-with st.container():
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-       st.header("A cat")
-       st.image("https://static.streamlit.io/examples/cat.jpg")
-    
-    with col2:
-       st.header("A dog")
-       st.image("https://static.streamlit.io/examples/dog.jpg")
-    
-    with col3:
-       st.header("An owl")
-       st.image("https://static.streamlit.io/examples/owl.jpg")
