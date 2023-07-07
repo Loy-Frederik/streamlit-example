@@ -78,7 +78,7 @@ if rec_select == 'Similar Movies':
     mov_col = len(sim_movies)
     m_cols = st.columns(mov_col)
     with st.container():
-        st.header(f'Users that liked{sim_feature["name"]}, also liked these {sim_feature['amount']} movies')
+        st.header(f'Users that liked{sim_feature["name"]}, also liked these {sim_feature["amount"]} movies')
         for i, x in enumerate(m_cols):
             st.header(sim_movies.iloc[i]['title'])
             st.image(sim_movies.iloc[i]['img'])
@@ -153,7 +153,7 @@ elif rec_select == 'All at once':
     mov_col = len(sim_movies)
     m_cols = st.columns(mov_col)
     with st.container():
-        st.header(f'Movies like {sim_feature["name"]}')
+        st.header(f'Users that liked{sim_feature["name"]}, also liked these {sim_feature["amount"]} movies')
         for i, x in enumerate(m_cols):
             st.header(sim_movies.iloc[i]['title'])
             st.image(sim_movies.iloc[i]['img'])
