@@ -81,14 +81,14 @@ with st.container():
        st.header("An owl")
        st.image("https://static.streamlit.io/examples/owl.jpg")
 
-/* Style columns */
+# /* Style columns */
 [data-testid="column"] {
     box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px, rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
     border-radius: 15px;
     padding: 5% 5% 5% 10%;
 } 
 
-/* Style containers */
+# /* Style containers */
 [data-testid="stVerticalBlock"] > [style*="flex-direction: column;"] > [data-testid="stVerticalBlock"] {
     border: 20px groove red; white-space: nowrap;
 }
