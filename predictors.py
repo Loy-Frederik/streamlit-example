@@ -56,7 +56,7 @@ def get_title(X):
     path = 'https://drive.google.com/uc?export=download&id='
     tit_df = pd.read_csv(path+titles_url.split('/')[-2])
     
-    title = titles_df.loc[tit_df['movieId'] == X,'title'].values[0]
+    title = tit_df.loc[tit_df['movieId'] == X,'title'].values[0]
     return(title)
 
 
