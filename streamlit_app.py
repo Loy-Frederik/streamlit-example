@@ -27,12 +27,12 @@ titles_df    =    pd.read_csv('data/movie_names.csv')
 users_df     =    pd.read_csv('data/user_df.csv')
 
 
-# Download the image using requests
-response = requests.get(logo_url)
-image_bytes = response.content
+# # Download the image using requests
+# response = requests.get(logo_url)
+# image_bytes = response.content
 
-# Open the image using PIL
-logo = Image.open(BytesIO(image_bytes))
+# # Open the image using PIL
+# logo = Image.open(BytesIO(image_bytes))
 
 st.set_page_config(page_title='WBSFlix')#, page_icon=logo)
 
