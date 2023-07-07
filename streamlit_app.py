@@ -164,7 +164,7 @@ elif rec_select == 'All at once':
                 'name' : user}
         return(data)
     user_feature =  user_like()
-    user_movies = pred.similar_taste(wf = rating_df, alt = user_feature['amount'], movie_id = user_feature['user_id'])
+    user_movies = pred.similar_taste(wf = rating_df, alt = user_feature['amount'], u_id = user_feature['user_id'])
 
     user_col = len(user_movies)
     u_cols = st.columns(user_col)
