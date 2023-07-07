@@ -48,7 +48,7 @@ if custom == True:
         "What kind of recommendation do you like",
         ('Similar Movies', 'Similar Taste', 'Movies that are hot right now', 'All at once'), key='rec_select')
 else:
-    st.write('Basic Bitch!')
+    # st.write('Basic Bitch!')
     rec_select = ''
     pop_movies = pred.pop_movies(wf = rating_df)
     # st.dataframe(pop_movies)
