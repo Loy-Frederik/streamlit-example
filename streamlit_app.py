@@ -103,6 +103,7 @@ if rec_select == 'Similar Movies':
     #         st.image(sim_movies.iloc[i]['img'])
     ncol = len(sim_movies)
     with st.container():
+        st.header(f'Users that liked {sim_feature["name"]}, also liked these {sim_feature["amount"]} movies')
         for i in range(0, ncol, 3):
             col1, col2, col3 = st.columns(3)
             with col1:
@@ -140,6 +141,7 @@ elif rec_select == 'Similar Taste':
     #         st.image(user_movies.iloc[i]['img'])
     ncol = len(user_movies)
     with st.container():
+        st.header(f'Special Treats for you {user_feature["name"]}')
         for i in range(0, ncol, 3):
             col1, col2, col3 = st.columns(3)
             with col1:
@@ -184,6 +186,7 @@ elif rec_select == 'Movies that are hot right now':
     #         st.image(pop_movies_custom.iloc[i]['img'])
     ncol = len(pop_movies)
     with st.container():
+        st.header(f'These movies are Lit')
         for i in range(0, ncol, 3):
             col1, col2, col3 = st.columns(3)
             with col1:
@@ -223,6 +226,7 @@ elif rec_select == 'All at once':
     #         st.image(sim_movies.iloc[i]['img'])
     ncol = len(sim_movies)
     with st.container():
+        st.header(f'Users that liked {sim_feature["name"]}, also liked these {sim_feature["amount"]} movies')
         for i in range(0, ncol, 3):
             col1, col2, col3 = st.columns(3)
             with col1:
@@ -259,6 +263,7 @@ elif rec_select == 'All at once':
     #         st.image(user_movies.iloc[i]['img'])
     ncol = len(user_movies)
     with st.container():
+        st.header(f'Special Treats for you {user_feature["name"]}')
         for i in range(0, ncol, 3):
             col1, col2, col3 = st.columns(3)
             with col1:
@@ -300,6 +305,7 @@ elif rec_select == 'All at once':
     #         st.image(pop_movies_custom.iloc[i]['img'])
     ncol = len(pop_movies)
     with st.container():
+        st.header(f'These movies are Lit')
         for i in range(0, ncol, 3):
             col1, col2, col3 = st.columns(3)
             with col1:
@@ -314,27 +320,6 @@ elif rec_select == 'All at once':
                     st.image(pop_movies.iloc[i+2]['img'])
                     st.text(pop_movies.iloc[i+2]['title'])
 
-    
-
 else:
     st.write('')
 
-
-
-
-
-
-# with st.container():
-#     col1, col2, col3 = st.columns(3)
-    
-#     with col1:
-#        st.header("A cat")
-#        st.image("https://static.streamlit.io/examples/cat.jpg")
-    
-#     with col2:
-#        st.header("A dog")
-#        st.image("https://static.streamlit.io/examples/dog.jpg")
-    
-#     with col3:
-#        st.header("An owl")
-#        st.image("https://static.streamlit.io/examples/owl.jpg")
