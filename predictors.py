@@ -29,7 +29,7 @@ def get_title(X):
 
 
 #### Popular Ursula
-def pop_movies(wf, alt = 10, period = 'all', time_mod = '2020-06-01'):     #period of time accepted: 'all', 'weeks', 'date', 'months', 'years', 'days'
+def pop_movies(wf, alt = 12, period = 'all', time_mod = '2020-06-01'):     #period of time accepted: 'all', 'weeks', 'date', 'months', 'years', 'days'
 
     start_stamp = datetime.fromtimestamp(wf['timestamp'].max())    #datetime.utcnow() 
 
