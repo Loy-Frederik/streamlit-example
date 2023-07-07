@@ -15,10 +15,12 @@ logo_url = 'https://img.freepik.com/premium-vector/cute-couple-panda-watching-mo
 
 rating_url = 'https://drive.google.com/file/d/1JBolFNkww-nRO_PTAHeXGE3KSVY4_7dl/view?usp=sharing'
 titles_url = 'https://drive.google.com/file/d/1Z3vHbjAeTAmFp-NeM-j4zYJjLz-fpqfn/view?usp=sharing'
+users_url = 'https://drive.google.com/file/d/1WTZcDfGsHU2ed9kTsdVIaeFcJ2M2Fxfe/view?usp=sharing'
 
 path = 'https://drive.google.com/uc?export=download&id='
 rating_df = pd.read_csv(path+rating_url.split('/')[-2])
 titles_df = pd.read_csv(path+titles_url.split('/')[-2])
+users_df = pd.read_csv(path+users_url.split('/')[-2])
 
 # Download the image using requests
 response = requests.get(logo_url)
@@ -60,7 +62,7 @@ else:
 if rec_select == 'Similar Movies':
     movie_like = st.sidebar.selectbox('Movie like', titles_df['title'], key = 'movie_like')
 elif rec_select == 'Similar Taste':
-    user_like = st.sidebar.selectbox('Who are you', rating_df['userId'], key = 'user_like')
+    user_like = st.sidebar.selectbox('Who are you', users_df['userId'], key = 'user_like')
 elif rec_select == 'Movies that are hot right now':
     st.write('Lets find some lit Movies.')
 elif rec_select == 'All at once':
