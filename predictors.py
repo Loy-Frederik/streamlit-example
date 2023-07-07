@@ -63,30 +63,32 @@ def get_title(X):
 #### Popular Ursula
 def pop_movies(wf, alt = 10, period = 'all', time_mod = '2020-06-01'):     #period of time accepted: 'all', 'weeks', 'date', 'months', 'years', 'days'
 
+    start_stamp = datetime.fromtimestamp(wf['timestamp'].max())    #datetime.utcnow() 
+
     ok_period = ['all', 'weeks', 'date', 'months', 'years', 'days']
 
     if period in ok_period:
         if period == 'days':
             if type(time_mod)==int:
-                filter_time = datetime.timestamp(datetime.utcnow()-timedelta(days=int(time_mod)))
+                filter_time = datetime.timestamp(start_stamp-timedelta(days=int(time_mod)))
                 wf = wf.loc[wf['timestamp'] >= filter_time]
             else:
                 sys.exit(f"time_mod has to be numeric to work with period = {period}")   
         if period == 'weeks':
             if type(time_mod)==int:
-                filter_time = datetime.timestamp(datetime.utcnow()-timedelta(weeks=int(time_mod)))
+                filter_time = datetime.timestamp(start_stamp-timedelta(weeks=int(time_mod)))
                 wf = wf.loc[wf['timestamp'] >= filter_time]
             else:
                 sys.exit(f"time_mod has to be numeric to work with period = {period}")   
         if period == 'months':
             if type(time_mod)==int:
-                filter_time = datetime.timestamp(datetime.utcnow()-relativedelta(months=int(time_mod)))
+                filter_time = datetime.timestamp(start_stamp-relativedelta(months=int(time_mod)))
                 wf = wf.loc[wf['timestamp'] >= filter_time]
             else:
                 sys.exit(f"time_mod has to be numeric to work with period = {period}")   
         if period == 'years':
             if type(time_mod)==int:
-                filter_time = datetime.timestamp(datetime.utcnow()-relativedelta(years=int(time_mod)))
+                filter_time = datetime.timestamp(start_stamp-relativedelta(years=int(time_mod)))
                 wf = wf.loc[wf['timestamp'] >= filter_time]
             else:
                 sys.exit(f"time_mod has to be numeric to work with period = {period}")
