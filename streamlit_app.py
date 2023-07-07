@@ -37,11 +37,11 @@ rec_select = st.sidebar.radio(
     "What kind of recommendation do you like",
     ('Similar Movies', 'Similar Taste', 'Movies that are hot right now', 'All at once'))
 
-if genre == 'Similar Movies':
+if rec_select == 'Similar Movies':
     movie_like = st.sidebar.selectbox('Movie like', titles_df['title'], key = 'movie_like')
-elif genre == 'Similar Taste':
+elif rec_select == 'Similar Taste':
     user_like = st.sidebar.selectbox('Who are you', rating_df['userId'], key = 'user_like')
-elif genre == 'Movies that are hot right now':
+elif rec_select == 'Movies that are hot right now':
     st.write('Lets find some lit Movies.')
 else:
     st.write('Sure we can do all together!')
