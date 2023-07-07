@@ -17,9 +17,7 @@ import pandas as pd
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-titles_url = 'https://drive.google.com/file/d/1Z3vHbjAeTAmFp-NeM-j4zYJjLz-fpqfn/view?usp=sharing'
-path = 'https://drive.google.com/uc?export=download&id='
-titles_df = pd.read_csv(path+titles_url.split('/')[-2])
+
 
 def get_image(X):
     soup_url = "https://www.imdb.com/title/"
