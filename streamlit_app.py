@@ -72,7 +72,8 @@ else:
                 if i + 1 < ncol:
                     st.image(pop_movies.iloc[i+1]['img'])
                     st.text(pop_movies.iloc[i+1]['title'])                    
-            with col3:                 if i + 2 < ncol:
+            with col3:                 
+                if i + 2 < ncol:
                     st.image(pop_movies.iloc[i+2]['img'])
                     st.text(pop_movies.iloc[i+2]['title'])
                     
@@ -112,7 +113,8 @@ if rec_select == 'Similar Movies':
                 if i + 1 < ncol:
                     st.image(sim_movies.iloc[i+1]['img'])
                     st.text(sim_movies.iloc[i+1]['title'])                    
-            with col3:                 if i + 2 < ncol:
+            with col3:                 
+                if i + 2 < ncol:
                     st.image(sim_movies.iloc[i+2]['img'])
                     st.text(sim_movies.iloc[i+2]['title'])
 
@@ -149,7 +151,8 @@ elif rec_select == 'Similar Taste':
                 if i + 1 < ncol:
                     st.image(user_movies.iloc[i+1]['img'])
                     st.text(user_movies.iloc[i+1]['title'])                    
-            with col3:                 if i + 2 < ncol:
+            with col3:                 
+                if i + 2 < ncol:
                     st.image(user_movies.iloc[i+2]['img'])
                     st.text(user_movies.iloc[i+2]['title'])
 
@@ -193,7 +196,8 @@ elif rec_select == 'Movies that are hot right now':
                 if i + 1 < ncol:
                     st.image(pop_movies_custom.iloc[i+1]['img'])
                     st.text(pop_movies_custom.iloc[i+1]['title'])                    
-            with col3:                 if i + 2 < ncol:
+            with col3:                 
+                if i + 2 < ncol:
                     st.image(pop_movies_custom.iloc[i+2]['img'])
                     st.text(pop_movies_custom.iloc[i+2]['title'])
 
@@ -232,7 +236,8 @@ elif rec_select == 'All at once':
                 if i + 1 < ncol:
                     st.image(sim_movies.iloc[i+1]['img'])
                     st.text(sim_movies.iloc[i+1]['title'])                    
-            with col3:                 if i + 2 < ncol:
+            with col3:                 
+                if i + 2 < ncol:
                     st.image(sim_movies.iloc[i+2]['img'])
                     st.text(sim_movies.iloc[i+2]['title'])
 
@@ -268,7 +273,8 @@ elif rec_select == 'All at once':
                 if i + 1 < ncol:
                     st.image(user_movies.iloc[i+1]['img'])
                     st.text(user_movies.iloc[i+1]['title'])                    
-            with col3:                 if i + 2 < ncol:
+            with col3:                 
+                if i + 2 < ncol:
                     st.image(user_movies.iloc[i+2]['img'])
                     st.text(user_movies.iloc[i+2]['title'])
 
@@ -309,7 +315,8 @@ elif rec_select == 'All at once':
                 if i + 1 < ncol:
                     st.image(pop_movies.iloc[i+1]['img'])
                     st.text(pop_movies.iloc[i+1]['title'])                    
-            with col3:                 if i + 2 < ncol:
+            with col3:                 
+                if i + 2 < ncol:
                     st.image(pop_movies.iloc[i+2]['img'])
                     st.text(pop_movies.iloc[i+2]['title'])
 
