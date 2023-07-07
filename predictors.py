@@ -52,9 +52,10 @@ def get_image(X):
 #     return(entry)
 def get_title(X):
 
-    titles_url = 'https://drive.google.com/file/d/1Z3vHbjAeTAmFp-NeM-j4zYJjLz-fpqfn/view?usp=sharing'
-    path = 'https://drive.google.com/uc?export=download&id='
-    tit_df = pd.read_csv(path+titles_url.split('/')[-2])
+    # titles_url = 'https://drive.google.com/file/d/1Z3vHbjAeTAmFp-NeM-j4zYJjLz-fpqfn/view?usp=sharing'
+    # path = 'https://drive.google.com/uc?export=download&id='
+    # tit_df = pd.read_csv(path+titles_url.split('/')[-2])
+    tit_df = pd.read_csv('data/movie_names.csv')
     
     title = tit_df.loc[tit_df['movieId'] == X,'title'].values[0]
     return(title)
