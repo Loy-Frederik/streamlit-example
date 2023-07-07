@@ -43,6 +43,11 @@ if custom == True:
 else:
     st.write('Basic Bitch!')
     rec_select = ''
+    pop_movies = pred.pop_movies(wf = rating_df)
+    st.dataframe(pop_movies)
+    
+
+
     
 
 if rec_select == 'Similar Movies':
@@ -55,6 +60,11 @@ elif rec_select == 'All at once':
     st.write('Sure we can do all together!')
 else:
     st.write('These movies are lit!!!!')
+
+
+
+
+
 
 with st.container():
     col1, col2, col3 = st.columns(3)
