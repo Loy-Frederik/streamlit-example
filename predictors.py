@@ -201,7 +201,7 @@ def similar_movies(wf, alt = 10, movie_id= 'tt0372784', minbo = 80):
     result = corr_tab_summary.sort_values('recommendation', ascending=False)[['rating', 'PearsonR', 'rating_count']].head(alt)
 
     result.reset_index(inplace=True)
-    result['title'], result['img'] = result['movieId'].apply(get_title)
+    result['title'] = result['movieId'].apply(get_title)
     result['img'] = result['movieId'].apply(get_image)
     result.set_index('movieId', drop=True, inplace=True)
 
