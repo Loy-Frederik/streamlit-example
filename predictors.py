@@ -1,5 +1,3 @@
-
-
 import streamlit as sl
 import numpy as np
 import pandas as pd
@@ -19,6 +17,21 @@ import pandas as pd
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
+def get_image(X):
+    soup_url = "https://www.imdb.com/title/"
+    headers = {'Accept-Language': 'en-US,en;q=0.8', 'user-agent': 'mozilla/5.0'}
+    # headers= {}
+    response = requests.get(f'{soup_url}{"tt0372784"}', headers = headers)
+
+    if response.status_code != 200:# 200 status code means OK!   
+        sys.exit(f"The Soup was to cold. Error: {response.status_code}")
+    else:
+        kitchen = ""
+
+    soup = BeautifulSoup(response.content, "html.parser")
+    img = soup.select("img", {'class': 'ipc-image'})[1]['src']
+
+    return(img)
 
 def get_title(X):
     soup_url = "https://www.imdb.com/title/"
@@ -33,9 +46,8 @@ def get_title(X):
     
     soup = BeautifulSoup(response.content, "html.parser")
     entry=soup.select("title")[0].get_text().split(' -')[0] # Fetch Movie title
-    img = soup.select("img", {'class': 'ipc-image'})[1]['src']
     
-    return(entry, img)
+    return(entry)
 
 
 #### Popular Ursula
