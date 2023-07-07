@@ -17,46 +17,13 @@ import pandas as pd
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-
-
 def get_image(X):
-    soup_url = "https://www.imdb.com/title/"
-    headers = {'Accept-Language': 'en-US,en;q=0.8', 'user-agent': 'mozilla/5.0'}
-    # headers= {}
-    response = requests.get(f'{soup_url}{X}', headers = headers)
-
-    if response.status_code != 200:# 200 status code means OK!   
-        sys.exit(f"The Soup was to cold. Error: {response.status_code}")
-    else:
-        kitchen = ""
-
-    soup = BeautifulSoup(response.content, "html.parser")
-    img = soup.select("img", {'class': 'ipc-image'})[1]['src']
-
+    img_df = pd.read_csv('data/titles_df.csv')
+    img = img_df.loc[img_df['movieId'] == X,'img'].values[0]
     return(img)
-
-# def get_title(X):
-#     soup_url = "https://www.imdb.com/title/"
-#     headers = {'Accept-Language': 'en-US,en;q=0.8', 'user-agent': 'mozilla/5.0'}
-#     # headers= {}
-#     response = requests.get(f'{soup_url}{X}', headers = headers)
     
-#     if response.status_code != 200:# 200 status code means OK!   
-#         sys.exit(f"The Soup was to cold. Error: {response.status_code}")
-#     else:
-#         kitchen = ""
-    
-#     soup = BeautifulSoup(response.content, "html.parser")
-#     entry=soup.select("title")[0].get_text().split(' -')[0] # Fetch Movie title
-    
-#     return(entry)
 def get_title(X):
-
-    # titles_url = 'https://drive.google.com/file/d/1Z3vHbjAeTAmFp-NeM-j4zYJjLz-fpqfn/view?usp=sharing'
-    # path = 'https://drive.google.com/uc?export=download&id='
-    # tit_df = pd.read_csv(path+titles_url.split('/')[-2])
     tit_df = pd.read_csv('data/movie_names.csv')
-    
     title = tit_df.loc[tit_df['movieId'] == X,'title'].values[0]
     return(title)
 
