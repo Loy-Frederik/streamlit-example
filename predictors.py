@@ -33,21 +33,24 @@ def get_image(X):
 
     return(img)
 
+# def get_title(X):
+#     soup_url = "https://www.imdb.com/title/"
+#     headers = {'Accept-Language': 'en-US,en;q=0.8', 'user-agent': 'mozilla/5.0'}
+#     # headers= {}
+#     response = requests.get(f'{soup_url}{X}', headers = headers)
+    
+#     if response.status_code != 200:# 200 status code means OK!   
+#         sys.exit(f"The Soup was to cold. Error: {response.status_code}")
+#     else:
+#         kitchen = ""
+    
+#     soup = BeautifulSoup(response.content, "html.parser")
+#     entry=soup.select("title")[0].get_text().split(' -')[0] # Fetch Movie title
+    
+#     return(entry)
 def get_title(X):
-    soup_url = "https://www.imdb.com/title/"
-    headers = {'Accept-Language': 'en-US,en;q=0.8', 'user-agent': 'mozilla/5.0'}
-    # headers= {}
-    response = requests.get(f'{soup_url}{X}', headers = headers)
-    
-    if response.status_code != 200:# 200 status code means OK!   
-        sys.exit(f"The Soup was to cold. Error: {response.status_code}")
-    else:
-        kitchen = ""
-    
-    soup = BeautifulSoup(response.content, "html.parser")
-    entry=soup.select("title")[0].get_text().split(' -')[0] # Fetch Movie title
-    
-    return(entry)
+    title = titles_df.loc[titles_df['movieId'] == X,'title'].values[0]
+    return(title)
 
 
 #### Popular Ursula
