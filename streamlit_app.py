@@ -65,15 +65,15 @@ else:
     
     with st.container():
         st.write(
-            "<style>div.css-1g9yjh9 {overflow-x: auto !important;}</style>",
-            unsafe_allow_html=True,
+            f'<div style="display: flex; overflow-x: auto;">',
+            unsafe_allow_html=True
         )
-        with st.horizontal_scrollbar():
-            row = st.columns(ncol)
-            for i in range(ncol):
-                with row[i].container(width=col_width):
-                    st.image(pop_movies.iloc[i]['img'])
-                    st.text(pop_movies.iloc[i]['title'])
+        row = st.columns(ncol)
+        for i in range(ncol):
+            with row[i].container(width=col_width):
+                st.header(pop_movies.iloc[i]['title'])
+                st.image(pop_movies.iloc[i]['img'])
+        st.write('</div>', unsafe_allow_html=True)
 
 
     
