@@ -44,14 +44,14 @@ else:
     st.write('Basic Bitch!')
     rec_select = ''
     pop_movies = pred.pop_movies(wf = rating_df)
-    st.dataframe(pop_movies)
+    # st.dataframe(pop_movies)
 
     ncol = len(pop_movies)
     cols = st.columns(ncol)
-    
-    for i, x in enumerate(cols):
-        st.header(pop_movies.iloc[i]['title'])
-        st.image(pop_movies.iloc[i]['img'])
+    with st.container():
+        for i, x in enumerate(cols):
+            st.header(pop_movies.iloc[i]['title'])
+            st.image(pop_movies.iloc[i]['img'])
     
 
 
