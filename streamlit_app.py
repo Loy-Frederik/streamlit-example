@@ -303,22 +303,22 @@ elif rec_select == 'All at once':
     #     for i, x in enumerate(p_cols):
     #         st.header(pop_movies_custom.iloc[i]['title'])
     #         st.image(pop_movies_custom.iloc[i]['img'])
-    ncol = len(pop_movies)
+    ncol = len(pop_movies_custom)
     with st.container():
         st.header(f'These movies are Lit')
         for i in range(0, ncol, 3):
             col1, col2, col3 = st.columns(3)
             with col1:
-                st.image(pop_movies.iloc[i]['img'])
-                st.text(pop_movies.iloc[i]['title'])
+                st.image(pop_movies_custom.iloc[i]['img'])
+                st.text(pop_movies_custom.iloc[i]['title'])
             with col2:
                 if i + 1 < ncol:
-                    st.image(pop_movies.iloc[i+1]['img'])
-                    st.text(pop_movies.iloc[i+1]['title'])                    
+                    st.image(pop_movies_custom.iloc[i+1]['img'])
+                    st.text(pop_movies_custom.iloc[i+1]['title'])                    
             with col3:                 
                 if i + 2 < ncol:
-                    st.image(pop_movies.iloc[i+2]['img'])
-                    st.text(pop_movies.iloc[i+2]['title'])
+                    st.image(pop_movies_custom.iloc[i+2]['img'])
+                    st.text(pop_movies_custom.iloc[i+2]['title'])
 
 else:
     st.write('')
