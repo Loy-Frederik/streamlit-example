@@ -52,3 +52,15 @@ elif rec_select == 'All at once':
     st.write('Sure we can do all together!')
 else:
     st.write('These movies are lit!!!!')
+
+st.popular_movies("My text here", value="Default text" * 100, height=100)
+
+st.markdown(
+    """
+<style>
+popular_movies {
+    white-space: nowrap;
+}
+""",
+    unsafe_allow_html=True,
+)
