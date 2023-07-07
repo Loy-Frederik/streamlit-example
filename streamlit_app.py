@@ -68,7 +68,7 @@ if rec_select == 'Similar Movies':
                 'name':title}
         return(data)
     sim_feature =  movie_like()
-    sim_movies = pred.similar_movies(wf = rating_df, alt = sim_feature['amount'], movie_id = sim_feature['mov_id'])
+    sim_movies = pred.similar_movies(wf = rating_df, alt = sim_feature['amount'], movie_id = sim_feature['title'])
 
     mov_col = len(sim_movies)
     m_cols = st.columns(mov_col)
@@ -85,12 +85,12 @@ elif rec_select == 'Similar Taste':
 
         user_id = users_df.loc[users_df['name']== user,'userId'].values[0]
 
-        data = {'title': user_id,
+        data = {'user_id': user_id,
                 'amount': amount,
                 'name' : user}
         return(data)
     user_feature =  user_like()
-    user_movies = pred.similar_taste(wf = rating_df, alt = user_feature['amount'], movie_id = user_feature['user_id'])
+    user_movies = pred.similar_taste(wf = rating_df, alt = user_feature['amount'], u_id = user_feature['user_id'])
 
     user_col = len(user_movies)
     u_cols = st.columns(user_col)
@@ -143,7 +143,7 @@ elif rec_select == 'All at once':
                 'name':title}
         return(data)
     sim_feature =  movie_like()
-    sim_movies = pred.similar_movies(wf = rating_df, alt = sim_feature['amount'], movie_id = sim_feature['mov_id'])
+    sim_movies = pred.similar_movies(wf = rating_df, alt = sim_feature['amount'], movie_id = sim_feature['title'])
 
     mov_col = len(sim_movies)
     m_cols = st.columns(mov_col)
@@ -159,7 +159,7 @@ elif rec_select == 'All at once':
 
         user_id = users_df.loc[users_df['name']== user,'userId'].values[0]
 
-        data = {'title': user_id,
+        data = {'user_id': user_id,
                 'amount': amount,
                 'name' : user}
         return(data)
@@ -204,3 +204,23 @@ elif rec_select == 'All at once':
 
 else:
     st.write('These movies are lit!!!!')
+
+
+
+
+
+
+# with st.container():
+#     col1, col2, col3 = st.columns(3)
+    
+#     with col1:
+#        st.header("A cat")
+#        st.image("https://static.streamlit.io/examples/cat.jpg")
+    
+#     with col2:
+#        st.header("A dog")
+#        st.image("https://static.streamlit.io/examples/dog.jpg")
+    
+#     with col3:
+#        st.header("An owl")
+#        st.image("https://static.streamlit.io/examples/owl.jpg")
