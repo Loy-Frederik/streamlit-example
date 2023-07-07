@@ -53,14 +53,42 @@ elif rec_select == 'All at once':
 else:
     st.write('These movies are lit!!!!')
 
-st.popular_movies("My text here", value="Default text" * 100, height=100)
+# st.popular_movies("My text here", value="Default text" * 100, height=100)
 
-st.markdown(
-    """
-<style>
-popular_movies {
-    white-space: nowrap;
+
+
+# st.markdown(
+#     """
+# <style>
+# popular_movies {
+#     white-space: nowrap;
+# }
+# """,
+#     unsafe_allow_html=True,
+# )
+with st.container():
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+       st.header("A cat")
+       st.image("https://static.streamlit.io/examples/cat.jpg")
+    
+    with col2:
+       st.header("A dog")
+       st.image("https://static.streamlit.io/examples/dog.jpg")
+    
+    with col3:
+       st.header("An owl")
+       st.image("https://static.streamlit.io/examples/owl.jpg")
+
+/* Style columns */
+[data-testid="column"] {
+    box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px, rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+    border-radius: 15px;
+    padding: 5% 5% 5% 10%;
+} 
+
+/* Style containers */
+[data-testid="stVerticalBlock"] > [style*="flex-direction: column;"] > [data-testid="stVerticalBlock"] {
+    border: 20px groove red; white-space: nowrap;
 }
-""",
-    unsafe_allow_html=True,
-)
