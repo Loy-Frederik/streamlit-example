@@ -38,7 +38,7 @@ def get_title(X):
 
 
 #### Popular Ursula
-def pop_movies(wf = imdb_df, alt = 10, period = 'all', time_mod = '2020-06-01'):     #period of time accepted: 'all', 'week', 'date', 'month', 'year', 'days'
+def pop_movies(wf, alt = 10, period = 'all', time_mod = '2020-06-01'):     #period of time accepted: 'all', 'week', 'date', 'month', 'year', 'days'
 
     ok_period = ['all', 'week', 'date', 'month', 'year', 'days']
 
@@ -120,7 +120,7 @@ def pop_movies(wf = imdb_df, alt = 10, period = 'all', time_mod = '2020-06-01'):
 
 # your code here
 #### All in One Function
-def similar_movies(wf = imdb_df, alt = 10, movie_id= 'tt0372784', minbo = 80):
+def similar_movies(wf, alt = 10, movie_id= 'tt0372784', minbo = 80):
 
     ## Filter location visited min minbo times
     filtered_df = wf[wf['movieId'] == movie_id]
@@ -183,7 +183,7 @@ def similar_movies(wf = imdb_df, alt = 10, movie_id= 'tt0372784', minbo = 80):
 
 # your code here
 
-def similar_taste(wf = imdb_df, alt = 10, u_id= 'ur4592644', minbo = 30):
+def similar_taste(wf, alt = 10, u_id= 'ur4592644', minbo = 30):
     
 
     ## Filter location visited min minbo times
