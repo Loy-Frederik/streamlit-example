@@ -36,9 +36,11 @@ custom = st.sidebar.checkbox('Personalized Experience', value=False, key='custom
 if custom == True:
     rec_select = st.sidebar.radio(
         "What kind of recommendation do you like",
-        ('Similar Movies', 'Similar Taste', 'Movies that are hot right now', 'All at once'))
+        ('Similar Movies', 'Similar Taste', 'Movies that are hot right now', 'All at once'), key='rec_select')
 else:
     st.write('Basic Bitch!')
+    rec_select = ''
+    
 
 if rec_select == 'Similar Movies':
     movie_like = st.sidebar.selectbox('Movie like', titles_df['title'], key = 'movie_like')
