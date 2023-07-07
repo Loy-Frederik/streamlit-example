@@ -62,7 +62,7 @@ else:
 if rec_select == 'Similar Movies':
     movie_like = st.sidebar.selectbox('Movie like', titles_df['title'], key = 'movie_like')
 elif rec_select == 'Similar Taste':
-    user_like = st.sidebar.selectbox('Who are you', users_df['userId'], key = 'user_like')
+    user_like = st.sidebar.selectbox('Who are you', users_df['name'], key = 'user_like')
 elif rec_select == 'Movies that are hot right now':
     st.write('Lets find some lit Movies.')
 elif rec_select == 'All at once':
