@@ -94,13 +94,28 @@ if rec_select == 'Similar Movies':
     sim_feature =  movie_like()
     sim_movies = pred.similar_movies(wf = rating_df, alt = sim_feature['amount'], movie_id = sim_feature['title'])
 
-    mov_col = len(sim_movies)
-    m_cols = st.columns(mov_col)
+    # mov_col = len(sim_movies)
+    # m_cols = st.columns(mov_col)
+    # with st.container():
+    #     st.header(f'Users that liked {sim_feature["name"]}, also liked these {sim_feature["amount"]} movies')
+    #     for i, x in enumerate(m_cols):
+    #         st.header(sim_movies.iloc[i]['title'])
+    #         st.image(sim_movies.iloc[i]['img'])
+    ncol = len(sim_movies)
     with st.container():
-        st.header(f'Users that liked {sim_feature["name"]}, also liked these {sim_feature["amount"]} movies')
-        for i, x in enumerate(m_cols):
-            st.header(sim_movies.iloc[i]['title'])
-            st.image(sim_movies.iloc[i]['img'])
+        for i in range(0, ncol, 3):
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.image(sim_movies.iloc[i]['img'])
+                st.text(sim_movies.iloc[i]['title'])
+            with col2:
+                if i + 1 < ncol:
+                    st.image(sim_movies.iloc[i+1]['img'])
+                    st.text(sim_movies.iloc[i+1]['title'])                    
+            with col3:
+                if i + 1 < ncol:
+                    st.image(sim_movies.iloc[i+2]['img'])
+                    st.text(sim_movies.iloc[i+2]['title'])
 
 elif rec_select == 'Similar Taste':
     def user_like():
@@ -116,13 +131,28 @@ elif rec_select == 'Similar Taste':
     user_feature =  user_like()
     user_movies = pred.similar_taste(wf = rating_df, alt = user_feature['amount'], u_id = user_feature['user_id'])
 
-    user_col = len(user_movies)
-    u_cols = st.columns(user_col)
+    # user_col = len(user_movies)
+    # u_cols = st.columns(user_col)
+    # with st.container():
+    #     st.header(f'Special Treats for you {user_feature["name"]}')
+    #     for i, x in enumerate(u_cols):
+    #         st.header(user_movies.iloc[i]['title'])
+    #         st.image(user_movies.iloc[i]['img'])
+    ncol = len(user_movies)
     with st.container():
-        st.header(f'Special Treats for you {user_feature["name"]}')
-        for i, x in enumerate(u_cols):
-            st.header(user_movies.iloc[i]['title'])
-            st.image(user_movies.iloc[i]['img'])
+        for i in range(0, ncol, 3):
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.image(user_movies.iloc[i]['img'])
+                st.text(user_movies.iloc[i]['title'])
+            with col2:
+                if i + 1 < ncol:
+                    st.image(user_movies.iloc[i+1]['img'])
+                    st.text(user_movies.iloc[i+1]['title'])                    
+            with col3:
+                if i + 1 < ncol:
+                    st.image(user_movies.iloc[i+2]['img'])
+                    st.text(user_movies.iloc[i+2]['title'])
 
 elif rec_select == 'Movies that are hot right now':
     st.write('Lets find some lit Movies.')
@@ -145,13 +175,28 @@ elif rec_select == 'Movies that are hot right now':
     pop_feature =  pop_mov()
     pop_movies_custom = pred.pop_movies(wf = rating_df, alt = pop_feature['amount'], period = pop_feature['period'], time_mod = pop_feature['time_mod'])
 
-    pop_col = len(pop_movies_custom)
-    p_cols = st.columns(pop_col)
+    # pop_col = len(pop_movies_custom)
+    # p_cols = st.columns(pop_col)
+    # with st.container():
+    #     st.header(f'These movies are Lit')
+    #     for i, x in enumerate(p_cols):
+    #         st.header(pop_movies_custom.iloc[i]['title'])
+    #         st.image(pop_movies_custom.iloc[i]['img'])
+    ncol = len(pop_movies)
     with st.container():
-        st.header(f'These movies are Lit')
-        for i, x in enumerate(p_cols):
-            st.header(pop_movies_custom.iloc[i]['title'])
-            st.image(pop_movies_custom.iloc[i]['img'])
+        for i in range(0, ncol, 3):
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.image(pop_movies.iloc[i]['img'])
+                st.text(pop_movies.iloc[i]['title'])
+            with col2:
+                if i + 1 < ncol:
+                    st.image(pop_movies.iloc[i+1]['img'])
+                    st.text(pop_movies.iloc[i+1]['title'])                    
+            with col3:
+                if i + 1 < ncol:
+                    st.image(pop_movies.iloc[i+2]['img'])
+                    st.text(pop_movies.iloc[i+2]['title'])
 
 elif rec_select == 'All at once':
     st.write('Lets do all together!')
@@ -169,13 +214,28 @@ elif rec_select == 'All at once':
     sim_feature =  movie_like()
     sim_movies = pred.similar_movies(wf = rating_df, alt = sim_feature['amount'], movie_id = sim_feature['title'])
 
-    mov_col = len(sim_movies)
-    m_cols = st.columns(mov_col)
+    # mov_col = len(sim_movies)
+    # m_cols = st.columns(mov_col)
+    # with st.container():
+    #     st.header(f'Users that liked {sim_feature["name"]}, also liked these {sim_feature["amount"]} movies')
+    #     for i, x in enumerate(m_cols):
+    #         st.header(sim_movies.iloc[i]['title'])
+    #         st.image(sim_movies.iloc[i]['img'])
+    ncol = len(sim_movies)
     with st.container():
-        st.header(f'Users that liked {sim_feature["name"]}, also liked these {sim_feature["amount"]} movies')
-        for i, x in enumerate(m_cols):
-            st.header(sim_movies.iloc[i]['title'])
-            st.image(sim_movies.iloc[i]['img'])
+        for i in range(0, ncol, 3):
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.image(sim_movies.iloc[i]['img'])
+                st.text(sim_movies.iloc[i]['title'])
+            with col2:
+                if i + 1 < ncol:
+                    st.image(sim_movies.iloc[i+1]['img'])
+                    st.text(sim_movies.iloc[i+1]['title'])                    
+            with col3:
+                if i + 1 < ncol:
+                    st.image(sim_movies.iloc[i+2]['img'])
+                    st.text(sim_movies.iloc[i+2]['title'])
 
     def user_like():
         user = st.sidebar.selectbox('Who are you', users_df['name'], key = 'user_like')
@@ -190,13 +250,28 @@ elif rec_select == 'All at once':
     user_feature =  user_like()
     user_movies = pred.similar_taste(wf = rating_df, alt = user_feature['amount'], u_id = user_feature['user_id'])
 
-    user_col = len(user_movies)
-    u_cols = st.columns(user_col)
+    # user_col = len(user_movies)
+    # u_cols = st.columns(user_col)
+    # with st.container():
+    #     st.header(f'Special Treats for you {user_feature["name"]}')
+    #     for i, x in enumerate(u_cols):
+    #         st.header(user_movies.iloc[i]['title'])
+    #         st.image(user_movies.iloc[i]['img'])
+    ncol = len(user_movies)
     with st.container():
-        st.header(f'Special Treats for you {user_feature["name"]}')
-        for i, x in enumerate(u_cols):
-            st.header(user_movies.iloc[i]['title'])
-            st.image(user_movies.iloc[i]['img'])
+        for i in range(0, ncol, 3):
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.image(user_movies.iloc[i]['img'])
+                st.text(user_movies.iloc[i]['title'])
+            with col2:
+                if i + 1 < ncol:
+                    st.image(user_movies.iloc[i+1]['img'])
+                    st.text(user_movies.iloc[i+1]['title'])                    
+            with col3:
+                if i + 1 < ncol:
+                    st.image(user_movies.iloc[i+2]['img'])
+                    st.text(user_movies.iloc[i+2]['title'])
 
     def pop_mov():
         amount = st.sidebar.slider('Number of Recommendations', min_value=1, max_value=20, value=5, step=1, key='pln', help='Here you can specify the number of recommended Movies')
@@ -216,13 +291,28 @@ elif rec_select == 'All at once':
     pop_feature =  pop_mov()
     pop_movies_custom = pred.pop_movies(wf = rating_df, alt = pop_feature['amount'], period = pop_feature['period'], time_mod = pop_feature['time_mod'])
 
-    pop_col = len(pop_movies_custom)
-    p_cols = st.columns(pop_col)
+    # pop_col = len(pop_movies_custom)
+    # p_cols = st.columns(pop_col)
+    # with st.container():
+    #     st.header(f'These movies are Lit')
+    #     for i, x in enumerate(p_cols):
+    #         st.header(pop_movies_custom.iloc[i]['title'])
+    #         st.image(pop_movies_custom.iloc[i]['img'])
+    ncol = len(pop_movies)
     with st.container():
-        st.header(f'These movies are Lit')
-        for i, x in enumerate(p_cols):
-            st.header(pop_movies_custom.iloc[i]['title'])
-            st.image(pop_movies_custom.iloc[i]['img'])
+        for i in range(0, ncol, 3):
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.image(pop_movies.iloc[i]['img'])
+                st.text(pop_movies.iloc[i]['title'])
+            with col2:
+                if i + 1 < ncol:
+                    st.image(pop_movies.iloc[i+1]['img'])
+                    st.text(pop_movies.iloc[i+1]['title'])                    
+            with col3:
+                if i + 1 < ncol:
+                    st.image(pop_movies.iloc[i+2]['img'])
+                    st.text(pop_movies.iloc[i+2]['title'])
 
     
 
