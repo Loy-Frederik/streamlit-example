@@ -45,6 +45,13 @@ else:
     rec_select = ''
     pop_movies = pred.pop_movies(wf = rating_df)
     st.dataframe(pop_movies)
+
+    ncol = len(pop_movies)
+    cols = st.beta_columns(ncol)
+    
+    for i, x in enumerate(cols):
+        st.header(pop_movies.iloc[i]['title'])
+        st.image(pop_movies.iloc[i]['img'])
     
 
 
