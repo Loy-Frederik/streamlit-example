@@ -62,30 +62,21 @@ else:
 
     
     ncol = len(pop_movies)
-    col_width = 250  # Adjust the column width as needed
-    
-    html_code = """
-        <style>
-            .container {
-                display: flex;
-                overflow-x: auto;
-            }
-            .column {
-                flex: 0 0 """ + str(col_width) + """px;
-                margin-right: 20px;
-            }
-        </style>
-    """
-    
     with st.container():
-        st.markdown(html_code, unsafe_allow_html=True)
-        st.markdown('<div class="container">', unsafe_allow_html=True)
-        for i in range(ncol):
-            st.markdown('<div class="column">', unsafe_allow_html=True)
-            st.header(pop_movies.iloc[i]['title'])
-            st.image(pop_movies.iloc[i]['img'])
-            st.markdown('</div>', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+        for i in range(0, ncol, 3):
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.header(pop_movies.iloc[i]['title'])
+                st.image(pop_movies.iloc[i]['img'])
+            with col2:
+                if i + 1 < ncol:
+                    st.header(pop_movies.iloc[i+1]['title'])
+                    st.image(pop_movies.iloc[i+1]['img'])
+            with col3:
+                if i + 1 < ncol:
+                    st.header(pop_movies.iloc[i+2]['title'])
+                    st.image(pop_movies.iloc[i+2]['img'])
+
 
 
     
