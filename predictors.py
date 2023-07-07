@@ -33,8 +33,9 @@ def get_title(X):
     
     soup = BeautifulSoup(response.content, "html.parser")
     entry=soup.select("title")[0].get_text().split(' -')[0] # Fetch Movie title
+    img = soup.select("img", {'class': 'ipc-image'})[1]['src']
     
-    return(entry)
+    return(entry, img)
 
 
 #### Popular Ursula
