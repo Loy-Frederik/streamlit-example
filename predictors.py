@@ -20,11 +20,6 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
-imdb_ratings = np.load ("../data/dataset_imdb_small/Dataset.npy")
-imdb_header = ['userId', 'movieID', 'rating', 'review_date']
-
-imdb_df = pd.DataFrame([entry.split(',') for entry in imdb_ratings], columns=imdb_header)
-
 def get_title(X):
     soup_url = "https://www.imdb.com/title/"
     headers = {'Accept-Language': 'en-US,en;q=0.8', 'user-agent': 'mozilla/5.0'}
