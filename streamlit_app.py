@@ -114,7 +114,7 @@ if rec_select == 'Similar Movies':
                     st.image(sim_movies.iloc[i+1]['img'])
                     st.text(sim_movies.iloc[i+1]['title'])                    
             with col3:                 
-                if i + 1 < ncol:
+                if i + 2 < ncol:
                     st.image(sim_movies.iloc[i+2]['img'])
                     st.text(sim_movies.iloc[i+2]['title'])
 
