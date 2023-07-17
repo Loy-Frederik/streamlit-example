@@ -73,7 +73,7 @@ else:
                     st.image(pop_movies.iloc[i+1]['img'])
                     st.text(pop_movies.iloc[i+1]['title'])                    
             with col3:                 
-                if i + 2 < ncol:
+                if i + 1 < ncol:
                     st.image(pop_movies.iloc[i+2]['img'])
                     st.text(pop_movies.iloc[i+2]['title'])
                     
